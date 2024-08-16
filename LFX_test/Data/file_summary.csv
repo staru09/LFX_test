@@ -1,0 +1,14 @@
+File Name,File Path,Summary
+cnn-lstm-parallel.ipynb,Notebooks/CREMAD/cnn-lstm-parallel.ipynb,
+cnn-transformer-parallel.ipynb,Notebooks/CREMAD/cnn-transformer-parallel.ipynb,
+CNN_only.ipynb,Notebooks/PUMAVE/CNN_only.ipynb,No content retrieved
+Emotion_recognition_Wav2Vec2.ipynb,Notebooks/PUMAVE/Emotion_recognition_Wav2Vec2.ipynb,No content retrieved
+LSTM+attention.ipynb,Notebooks/PUMAVE/LSTM+attention.ipynb,
+LSTM_only.ipynb,Notebooks/PUMAVE/LSTM_only.ipynb,
+parallel_CNN_Transformer.ipynb,Notebooks/PUMAVE/parallel_CNN_Transformer.ipynb,
+wav2vec_pumave.ipynb,Notebooks/PUMAVE/wav2vec_pumave.ipynb,
+cnn-attention.ipynb,Notebooks/RAVDESS/cnn-attention.ipynb,
+cnn-transformer.ipynb,Notebooks/RAVDESS/cnn-transformer.ipynb,
+finetuning-hubert.ipynb,Notebooks/RAVDESS/finetuning-hubert.ipynb,
+stacked-lstm-attention.ipynb,Notebooks/RAVDESS/stacked-lstm-attention.ipynb,
+stacked-lstm-cnn.ipynb,Notebooks/RAVDESS/stacked-lstm-cnn.ipynb,
