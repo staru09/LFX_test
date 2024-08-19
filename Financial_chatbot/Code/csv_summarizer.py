@@ -50,7 +50,7 @@ def summarize_csv_content(input_csv_file, output_csv_file):
         logging.error(f"Error processing CSV: {e}")
 
 if __name__ == "__main__":
-    input_csv_file = 'Enter_path_to_input_file'  
-    output_csv_file = 'Enter_path_to_output_file' 
+    input_csv_file = 'Input_file_path'  
+    output_csv_file = 'Output_file_path' 
 
     summarize_csv_content(input_csv_file, output_csv_file)
