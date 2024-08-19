@@ -8,12 +8,12 @@ def split_into_sentences(text, words_per_sentence=10):
         
     return '\n\n'.join(sentences)
 
-with open('/kaggle/input/form-10/Form 10-Q queries.txt', 'r') as file:
+with open('path_to_your_input_file', 'r') as file:
     content = file.read()
 
 modified_content = split_into_sentences(content)
 
-with open('/kaggle/working/output_test_last.txt', 'w') as file:
+with open('path_to_your_output_file', 'w') as file:
     file.write(modified_content)
 
 print("Text has been split into sentences with 10 words each, and blank lines have been added.")
