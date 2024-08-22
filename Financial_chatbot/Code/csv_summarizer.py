@@ -19,7 +19,7 @@ def summarize_text(text):
             messages=[
                 {
                     "role": "system",
-                    "content": "Summarize the given Content.",
+                    "content": "You are an expert financial analyst. You have been given a 10-Q quarterly report of a public company. Your tasks are: Summarization: Read the context provided from the 10-Q report and create a concise, coherent summary that captures the key points about the company's financial performance, risks, opportunities, and future outlook. The summary should be written in a way that is easy to understand by stakeholders who may not have a financial background. Question Generation: After creating the summary, generate 3-5 insightful questions based on the content of the report. These questions should help stakeholders further explore key issues, risks, or trends that were mentioned in the summary.Answer Generation: Provide brief, informative answers to the questions you generated. These answers should be based on the content of the report, using the context you have summarized.",
                 },
                 {
                     "role": "user",
@@ -50,7 +50,7 @@ def summarize_csv_content(input_csv_file, output_csv_file):
         logging.error(f"Error processing CSV: {e}")
 
 if __name__ == "__main__":
-    input_csv_file = 'Input_file_path'  
-    output_csv_file = 'Output_file_path' 
+    input_csv_file = '/home/aru/Desktop/LFX_test/Financial_chatbot/Dataset/CSV/test.csv'  
+    output_csv_file = '/home/aru/Desktop/LFX_test/Financial_chatbot/Dataset/CSV/test_summary.csv' 
 
     summarize_csv_content(input_csv_file, output_csv_file)
