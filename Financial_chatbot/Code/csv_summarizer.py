@@ -50,7 +50,7 @@ def summarize_csv_content(input_csv_file, output_csv_file):
         logging.error(f"Error processing CSV: {e}")
 
 if __name__ == "__main__":
-    input_csv_file = '/home/aru/Desktop/LFX_test/Financial_chatbot/Dataset/CSV/test.csv'  
-    output_csv_file = '/home/aru/Desktop/LFX_test/Financial_chatbot/Dataset/CSV/test_summary.csv' 
+    input_csv_file = '/home/aru/Desktop/LFX_test/Financial_chatbot/Dataset/CSV/out.csv'  
+    output_csv_file = '/home/aru/Desktop/LFX_test/Financial_chatbot/Dataset/CSV/summary_qna.csv' 
 
     summarize_csv_content(input_csv_file, output_csv_file)
