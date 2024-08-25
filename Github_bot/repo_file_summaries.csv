@@ -1,0 +1,253 @@
+File Path,Summary
+Assignment 2/anagram.py,"**Function Summary: `check_anagram`**
+
+The `check_anagram` function determines whether two input strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another word or phrase, typically using all the original letters exactly once.
+
+**Code Breakdown:**
+
+1. The function takes two string inputs, `str1` and `str2`.
+2. Both input strings are converted to lowercase using the `lower()` method.
+3. If the lengths of the two strings are not equal, the function immediately returns `False`, as anagrams must have the same number of characters.
+4. The function then sorts the characters in each string using the `sorted()` function and compares the resulting lists. If they are not equal, the function returns `False`.
+5. If both checks pass, the function returns `True`, indicating that the input strings are anagrams.
+
+**Example Use Case:**
+
+When prompted to enter two strings, the user can input ""listen"" and ""silent"". The function will return `True` because these two strings are indeed anagrams of each other."
+Assignment 2/class_marks.py,"**Code Summary**
+
+This Python code generates a list of random marks for 10 students, calculates the percentage of students who scored more than the average mark, and analyzes the frequency of each mark.
+
+**Key Functions:**
+
+1. `find_more_than_average(marks)`: Calculates the percentage of students who scored more than the average mark.
+2. `generate_frequency(marks)`: Creates a list to store the frequency of each mark (0-25).
+3. `sort_marks(marks)`: Returns a sorted list of marks.
+
+**Main Program:**
+
+1. Generates a tuple of 10 random marks between 0 and 25 using `random.randint`.
+2. Prints the original marks.
+3. Calls `find_more_than_average` to calculate the percentage of students who scored more than the average mark, and prints the result.
+4. Calls `generate_frequency` to create a list of frequencies for each mark (0-25), and prints the result.
+5. Calls `sort_marks` to sort the original marks in ascending order, and prints the sorted list.
+
+**Example Output:**
+
+```
+Marks of students: (14, 20, 18, 22, 10, 15, 12, 19, 17, 21)
+Percentage of students scoring more than average: 50.00%
+Frequency of each mark (0-25): [1, 2, 3, 4, 1, 2, 1, 2, 2, 1]
+Sorted marks: [10, 12, 14, 15, 17, 18, 19, 20, 21, 22]
+```"
+Assignment 2/largest_number.py,"**Code Summary**
+
+This code generates the largest possible number from a given list of two-digit numbers. Here's a concise and coherent summary:
+
+### Problem Statement
+
+Given a list of two-digit numbers, find the largest possible number that can be formed by concatenating these numbers.
+
+### Solution Overview
+
+1. Convert each number to a string.
+2. Sort the strings using a custom comparison function (`compare`) that prioritizes larger numbers when concatenated.
+3. Join the sorted strings into a single string to form the largest possible number.
+
+### Code Breakdown
+
+* `compare` function: Compares two strings by concatenating them in both orders and returns -1 if the first order is larger, 1 if the second order is larger, and 0 if they are equal.
+* `create_largest_number` function:
+	+ Converts each number to a string using `map`.
+	+ Sorts the strings using `sorted` with the custom comparison function as the key.
+	+ Joins the sorted strings into a single string using `''.join`.
+* Main code: Prompts the user for input, converts it to a list of integers, calls `create_largest_number`, and prints the result.
+
+### Example Use Case
+
+Input: `12,21,3`
+Output: `321`"
+Assignment 2/length_encoding.py,"**Run-Length Encoding Function**
+
+The `run_length_encoding` function takes a string `s` as input and returns its run-length encoded version.
+
+### Code Summary
+
+1. The function first checks if the input string is empty, in which case it returns an empty string.
+2. It initializes two variables: `encoded_string` to store the encoded result and `count` to keep track of consecutive occurrences of a character.
+3. The function iterates through the input string starting from the second character (index 1).
+4. If the current character is the same as the previous one, it increments the `count`.
+5. If the characters are different, it appends the count and the previous character to the `encoded_string` and resets the `count` to 1.
+6. After iterating through the entire string, it appends the final count and character to the `encoded_string`.
+7. The function returns the encoded string.
+
+### Example Usage
+
+The code includes a user input section that prompts the user to enter a string with uppercase characters (A-Z). The entered string is then passed to the `run_length_encoding` function, which encodes it using run-length encoding and prints the result.
+
+**Example Input/Output**
+
+```
+Enter a string with uppercase characters (A-Z): AAAABBBCCC
+Run-Length Encoded String: 4A3B3C
+```"
+Assignment 2/odd_even.py,"**Code Summary**
+
+This code defines three functions to manipulate a sample dataset of numbers from 1 to 10. The main functionality is to separate the numbers into odd and even categories, and then calculate their sums.
+
+### Functions
+
+* `odd()`: Returns a list of odd numbers from the `sample_data` using a list comprehension.
+* `even()`: Returns a list of even numbers from the `sample_data` using a list comprehension.
+* `sum_of_numbers(data, func=None)`: Calculates the sum of all numbers in `data`. If `func` is provided, it uses the result of calling `func()` as the data to be summed.
+
+### Example Usage
+
+The code creates an instance of `sample_data` and demonstrates how to use the functions:
+
+* Prints the odd and even numbers from `sample_data`.
+* Calculates and prints the sum of all numbers in `sample_data`.
+* Uses the `odd()` function as a callback to calculate the sum of only the odd numbers.
+* Uses the `even()` function as a callback to calculate the sum of only the even numbers.
+
+**Key Takeaways**
+
+* The code showcases list comprehensions for filtering data and calculating sums.
+* It demonstrates how to use functions as callbacks to perform specific operations on data."
+Assignment 2/pair_check.py,"**Code Summary**
+
+This code defines a function `find_pairs_of_numbers` that takes two inputs:
+
+1. `numbers`: A list of integers
+2. `target_sum`: The desired sum of pairs of numbers in the list
+
+The function iterates through each number in the list, calculates its complement (i.e., the value needed to reach the target sum), and checks if this complement has been seen before. If it has, it increments a counter. Finally, it returns the count of such pairs.
+
+**Example Usage**
+
+1. The code prompts the user to input a list of positive integers separated by commas.
+2. It then asks for the target sum.
+3. The `find_pairs_of_numbers` function is called with these inputs and prints the number of pairs that add up to the target sum.
+
+**Code Quality Notes**
+
+* The code uses clear variable names and follows standard Python naming conventions.
+* The use of a set (`seen_numbers`) to keep track of seen numbers is efficient, as it allows for O(1) lookups.
+* The function has a single responsibility (finding pairs of numbers that add up to the target sum), making it easy to understand and test."
+Assignment1/Comman_character.py,"Here is a concise and coherent summary of the given code:
+
+**Function: `common_characters`**
+
+This function takes two string inputs, `str1` and `str2`, and returns a string containing their common characters. If no common characters are found, it returns `-1`.
+
+**Algorithm:**
+
+1. Initialize an empty list `common_chars` to store the common characters.
+2. Iterate through each character in `str1`. For each character:
+	* Check if it's not already in `common_chars`.
+	* If it's not, iterate through each character in `str2`. If a match is found, add the character to `common_chars` and break out of the inner loop.
+3. Create another list `unique_common_chars` to store unique common characters.
+4. Iterate through each character in `common_chars`. For each character:
+	* Check if it's not already in `unique_common_chars`.
+	* If it's not, add it to `unique_common_chars`.
+5. Return the string representation of `unique_common_chars` (joined by an empty string) or `-1` if no common characters were found.
+
+**Example Usage:**
+
+The code prompts the user to input two strings and then calls the `common_characters` function with these inputs. If a result is returned, it prints the common characters; otherwise, it prints ""No common characters."""
+Assignment1/Day_in_month.py,"**Code Summary**
+
+This code is a simple program that takes user input for a month and year, then prints out the number of days in that month. The program handles leap years correctly.
+
+Here's a concise breakdown:
+
+1. **User Input**: The program asks the user to enter a month name (e.g., January) and a year.
+2. **Month Validation**: It checks if the entered month is valid by comparing it with a list of known month names. If invalid, it prints an error message and exits.
+3. **Leap Year Handling**: For February, it checks for leap years using the standard rules (year divisible by 4 but not 100, or year divisible by 400).
+4. **Day Calculation**: Based on the month, it calculates the number of days:
+	* February: 28 or 29 (depending on leap year)
+	* Months with 31 days: January, March, May, July, August, October, and December
+	* All other months: 30 days
+5. **Output**: Finally, it prints out the month name, year, and number of days.
+
+**Code Quality**
+
+The code is well-structured, readable, and concise. It uses clear variable names and follows standard Python conventions. The use of a list for month names makes it easy to add or remove months in the future. However, some minor improvements could be made:
+
+* Consider using a more robust way to handle invalid input (e.g., using `try`-`except` blocks).
+* Add comments to explain the leap year logic and day calculation rules.
+* Use a more descriptive variable name instead of `month_names`."
+Assignment1/List_merging.py,"**Code Summary**
+
+The `merge_lists` function merges two input lists, `list1` and `list2`, into a single list. The merging process is done in a way that pairs elements from both lists based on their indices.
+
+Here's a step-by-step breakdown:
+
+1. Initialize an empty list `merged_list`.
+2. Get the lengths of both input lists (`len1` and `len2`).
+3. Iterate over the maximum length between `len1` and `len2` using a for loop.
+4. For each iteration, check if the current index is within the bounds of both lists:
+	* If it's within `list1`, assign the element at that index to `l1_elem`.
+	* If it's not within `list1`, set `l1_elem` to `None`.
+	* Similarly, for `list2`, assign the element at the corresponding index (calculated using `-i - 1`) to `l2_elem`. If it's out of bounds, set `l2_elem` to `None`.
+5. Based on the values of `l1_elem` and `l2_elem`, append the following to `merged_list`:
+	* If one is `None` and the other is not, append the non-`None` value.
+	* If both are not `None`, append their concatenation (`l1_elem + l2_elem`).
+6. Return the merged list.
+
+**Example Output**
+
+When run with the provided example lists:
+
+```python
+list1 = ['A', 'app', 'a', 'd', 'ke', 'th', 'doc', 'awa']
+list2 = ['y', 'tor', 'e', 'eps', 'ay', None, 'le', 'n']
+
+result = merge_lists(list1, list2)
+print(result)
+```
+
+The output will be:
+
+```python
+['Ay', 'appor', 'ae', 'deps', 'akey', 'thay', 'docle', 'awana']
+```"
+Assignment1/Pattern.py,"**Pattern Printing Code Summary**
+
+This code generates a pattern of numbers, where each row contains increasing integers up to the current row number. The pattern is symmetrical and mirrored.
+
+Here's a concise breakdown:
+
+1. **User Input**: The user is prompted to enter the size of the pattern (`m`).
+2. **First Half of Pattern**:
+	* Two nested loops iterate from 1 to `m`.
+	* The inner loop prints integers from 1 to the current row number (`i`) separated by spaces.
+3. **Second Half of Pattern**:
+	* Another two nested loops iterate from `m-1` down to 1.
+	* The inner loop prints integers from 1 to the current row number (`i`) separated by spaces.
+
+The resulting pattern is a symmetrical triangle of numbers, with each row containing one more integer than the previous row."
+Assignment1/Sum_every_5th_no.py,"Here is a concise and coherent summary of the given code:
+
+**Code Summary**
+
+This code calculates the sum of every fifth number from 0 to 100.
+
+**Key Points:**
+
+1. The code initializes two variables: `current_number` (starting at 0) and `total_sum` (initially 0).
+2. A while loop runs as long as `current_number` is less than or equal to 100.
+3. Inside the loop, the current number is added to `total_sum`.
+4. The current number is printed to the console.
+5. The current number is incremented by 5 (i.e., every fifth number).
+6. After the loop finishes, the total sum of every fifth number from 0 to 100 is printed.
+
+**Example Output:**
+
+```
+Next 5th element is:  0
+Next 5th element is:  5
+Next 5th element is:  10
+...
+The sum of every fifth number from 0 to 100 is: 2500
+```"
