@@ -7,15 +7,12 @@ from github import Github
 from urllib.parse import urlparse
 import openai
 
-# Setup logging
 logging.basicConfig(level=logging.INFO)
 
-# Constants
 API_BASE_URL = "https://llama.us.gaianet.network/v1"
 MODEL_NAME = "llama"
 API_KEY = "GAIA"
 
-# Initialize OpenAI client
 client = openai.OpenAI(base_url=API_BASE_URL, api_key=API_KEY)
 
 def summarize_text(text):
@@ -42,13 +39,12 @@ def summarize_text(text):
         return "Error: Could not summarize"
 
 def get_repo_files(repo_url):
-    # Extract owner and repo name from the URL
     parsed_url = urlparse(repo_url)
     path_parts = parsed_url.path.strip('/').split('/')
     owner, repo_name = path_parts[0], path_parts[1]
 
     # Initialize GitHub client
-    g = Github()  # If you have a token, use: g = Github("your_access_token")
+    g = Github() 
 
     # Get the repository
     repo = g.get_repo(f"{owner}/{repo_name}")
@@ -72,7 +68,7 @@ def fetch_file_content(repo_url, file_path):
     owner, repo_name = path_parts[0], path_parts[1]
 
     # Initialize GitHub client
-    g = Github()  # If you have a token, use: g = Github("your_access_token")
+    g = Github() 
 
     # Get the repository
     repo = g.get_repo(f"{owner}/{repo_name}")
@@ -87,13 +83,12 @@ def process_files(repo_url, output_csv_file):
         
         with open(output_csv_file, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(["File Path", "Summary"])  # Header
+            writer.writerow(["File Path", "Summary"])  
             
             for path in file_paths:
                 logging.info(f"Processing file: {path}")
                 file_content = fetch_file_content(repo_url, path)
                 
-                # Summarize file content
                 summary = summarize_text(file_content)
                 writer.writerow([path, summary])
                 
