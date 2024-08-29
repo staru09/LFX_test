@@ -1,40 +1,26 @@
 from pathlib import Path
 from typing import List, Optional
 import itertools
-
 import pdfkit
-from file_utils import filing_exists
 from fire import Fire
 from sec_edgar_downloader import Downloader
 
 DEFAULT_OUTPUT_DIR = "data/"
 DEFAULT_CIKS = [
-    "320193",  # AAPL
- 
-    '''
-    "789019",  # MSFT
     "0001018724",  # AMZN
-    "1652044",  # GOOGL
-    "1326801",  # META
-    "1318605",  # TSLA
-    "1045810",  # NVDA
-    "1065280",  # NFLX
-    "0001633917",  # PYPL
-    "78003",  # PFE (Pfizer)
-    "901832",  # AZNCF (AstraZeneca)
-    "59478",  # LLY (Eli Lilly)
-    "1682852",  # MRNA (Moderna)
-    "200406",  # JNJ (Johnson & Johnson)
-    '''
 ]
 DEFAULT_FILING_TYPES = [
     "10-K",
     "10-Q",
 ]
 
-# Replace settings.SEC_EDGAR_COMPANY_NAME and settings.SEC_EDGAR_EMAIL with direct values
 COMPANY_NAME = "Your Company Name"
 EMAIL = "your-email@example.com"
+
+def filing_exists(cik: str, filing_type: str, output_dir: str) -> bool:
+    data_dir = Path(output_dir) / "sec-edgar-filings"
+    filing_dir = data_dir / cik / filing_type
+    return filing_dir.exists()
 
 def _download_filing(
     cik: str, filing_type: str, output_dir: str, limit=None, before=None, after=None
@@ -43,7 +29,6 @@ def _download_filing(
     dl.get(filing_type, cik, limit=limit, before=before, after=after, download_details=True)
 
 def _convert_to_pdf(output_dir: str):
-    """Converts all html files in a directory to pdf files."""
     data_dir = Path(output_dir) / "sec-edgar-filings"
 
     for cik_dir in data_dir.iterdir():
@@ -58,6 +43,7 @@ def _convert_to_pdf(output_dir: str):
                     try:
                         options = {'enable-local-file-access': None}
                         pdfkit.from_file(input_path, output_path, options=options, verbose=True)
+                        filing_doc.unlink()
                     except Exception as e:
                         print(f"Error converting {input_path} to {output_path}: {e}")
 
@@ -74,7 +60,6 @@ def main(
     print(f"File Types: {file_types}")
     
     if convert_to_pdf:
-        # Check if pdfkit can find wkhtmltopdf
         if pdfkit.configuration().wkhtmltopdf is None:
             raise Exception(
                 "ERROR: wkhtmltopdf (https://wkhtmltopdf.org/) not found, "
@@ -93,7 +78,7 @@ def main(
             print(f"Error downloading filing for symbol={symbol} & file_type={file_type}: {e}")
 
     if convert_to_pdf:
-        print("Converting html files to pdf files")
+        print("Converting html files to pdf files and deleting the html files")
         _convert_to_pdf(output_dir)
 
 if __name__ == "__main__":
