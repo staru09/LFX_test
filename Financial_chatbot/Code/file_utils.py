@@ -114,7 +114,7 @@ def parse_ticker_symbol_from_full_submission_txt(
     return ticker_symbol.upper()
 
 
-def get_available_filings(output_dir: str) -> List[Filing]:
+'''def get_available_filings(output_dir: str) -> List[Filing]:
     data_dir = Path(output_dir) / "sec-edgar-filings"
     filings = []
     for cik_dir in data_dir.iterdir():
@@ -160,3 +160,4 @@ def get_available_filings(output_dir: str) -> List[Filing]:
 def get_available_filings_as_df(output_dir: str) -> pd.DataFrame:
     filings = get_available_filings(output_dir)
     return pd.DataFrame([filing.dict() for filing in filings])
+'''
